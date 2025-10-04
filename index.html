@@ -1,69 +1,136 @@
 <!DOCTYPE html>
 <html lang="pt">    
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gustavo Thon</title>
-    <link rel="stylesheet" href="estilos/style.css">
-</html>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gustavo Thon</title>
+  <link rel="stylesheet" href="estilos/style.css">
+</head>
 <body>
-    <header>
-        <h1>Bem-vindo a minha pagina pessoal</h1>
-        <nav>
-            <ul class ="wp-block-list topic-cluster-index">
-                <li><a href="#sobre">Sobre Mim</a></li>
-                <li><a href="#projetos">Projetos</a></li>
-                <li><a href="#contato">Contato</a></li>
-            </ul>
-        </nav>
-    </header>
+  <!-- Cabeçalho -->
+  <header>
+    <div class="container header-flex">
+      <h1>Bem-vindo à minha página pessoal</h1>
+      <nav>
+        <ul>
+          <li><a href="#sobre">Sobre Mim</a></li>
+          <li><a href="#hobbies">Hobbies</a></li>
+          <li><a href="#projetos">Projetos</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+      <!-- Botão Dark Mode -->
+      <button id="darkModeToggle">🌙</button>
+    </div>
+  </header>
 
-<main>
-    <section id="sobre">
+  <main>
+    <!-- Sobre mim -->
+    <section id="sobre" class="section">
+      <div class="container">
         <h2>Sobre mim</h2>
-        <p>Olá! Meu nome é Gustavo Ribeiro Thon.</p>
-        <p>Sou estudante do primeiro ano na ULusofona e tenho como objetivo nesta pagina falar um pouco de mim e de meus trabalhos.</p>
-        <p>Tenho 18 anos, nasci em Santo André, São Paulo, e atualmente moro em São Félix da Marinha. Sou apaixonado por Desenhos, Filmes e Jogos. No meu tempo livre, customo desenhar e ter ideais para alguns projetos pessoais. Desde criança sempre tive contato com as artes, é algo que sempre tive gosto de ver e fazer.</p>
-        <img src="img/Auto Retrato.png" alt="Foto de Gustavo Thon" style="width:200px;height:auto;;">
-        <h3><strong>hobbies</strong></h3>
-        <p>Alguns dos meus hobbies são:</p>
-        <ul>
-            <li>Desenhar</li>
-            <li>Assistir filmes</li>
-            <li>Jogar e criar jogos</li>
-            <li>Fazer maquetes</li>
-        </ul>
+        <div class="sobre-grid">
+          <div class="texto">
+            <p>Olá! Meu nome é <strong>Gustavo Ribeiro Thon</strong>.</p>
+            <p>Sou estudante do primeiro ano na ULusofona e tenho como objetivo nesta página falar um pouco de mim e de meus trabalhos.</p>
+            <p>Tenho 18 anos, nasci em Santo André, São Paulo, e atualmente moro em São Félix da Marinha. Sou apaixonado por Desenhos, Filmes e Jogos. No meu tempo livre, costumo desenhar e ter ideias para alguns projetos pessoais. Desde criança sempre tive contato com as artes, algo que sempre gostei de ver e fazer.</p>
+          </div>
+          <div class="foto">
+            <img src="img/Auto Retrato.png" alt="Foto de Gustavo Thon">
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section id="projetos">
+    <!-- Hobbies -->
+    <section id="hobbies" class="section bg-light">
+      <div class="container">
+        <h2 style="margin-top: 30px;">Hobbies</h2>
+        <p>Clique em um hobby para saber mais:</p>
+        <ul class="lista hobbies-lista">
+          <li><a href="#hobby-desenhar">🎨 Desenhar</a></li>
+          <li><a href="#hobby-filmes">🎬 Assistir filmes</a></li>
+          <li><a href="#hobby-jogos">🎮 Jogar e criar jogos</a></li>
+          <li><a href="#hobby-maquetes">🏗️ Fazer maquetes</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Seções de hobbies detalhadas -->
+    <section id="hobby-desenhar" class="section">
+      <div class="container">
+        <h3>🎨 Desenhar</h3>
+        <p>Aqui você pode colocar seus desenhos, falar sobre suas inspirações, técnicas, materiais que usa, etc.</p>
+        <img src="https://placekitten.com/400/250" alt="Exemplo de desenho">
+      </div>
+    </section>
+
+    <section id="hobby-filmes" class="section bg-light">
+      <div class="container">
+        <h3>🎬 Assistir filmes</h3>
+        <p>Espaço para comentar sobre filmes favoritos, críticas ou recomendações.</p>
+      </div>
+    </section>
+
+    <section id="hobby-jogos" class="section">
+      <div class="container">
+        <h3>🎮 Jogar e criar jogos</h3>
+        <p>Espaço para mostrar jogos que gosta, ideias que tem ou projetos relacionados.</p>
+      </div>
+    </section>
+
+    <section id="hobby-maquetes" class="section bg-light">
+      <div class="container">
+        <h3>🏗️ Fazer maquetes</h3>
+        <p>Aqui você pode postar fotos de maquetes já feitas e contar como foi o processo de criação.</p>
+      </div>
+    </section>
+
+    <!-- Projetos -->
+    <section id="projetos" class="section">
+      <div class="container">
         <h2>Alguns dos meus projetos escolares</h2>
-        <ul>
-            <li><strong>Projeto 1:</strong> Descrição.</li>
-            <img src="https://i.pinimg.com/736x/ff/1c/2d/ff1c2d9955ff5b23e6a025a916b03ad4.jpg" alt="Foto de Gustavo Ribeiro Thon" style="width:200px;height:auto;">
-            <li><strong>Projeto 2:</strong> Descrição.</li>
-            <img src="https://i.pinimg.com/736x/ff/1c/2d/ff1c2d9955ff5b23e6a025a916b03ad4.jpg" alt="Foto de Gustavo Ribeiro Thon" style="width:200px;height:auto;">
-            <li><strong>Projeto 3:</strong> Descrição.</li>
-            <img src="https://i.pinimg.com/736x/ff/1c/2d/ff1c2d9955ff5b23e6a025a916b03ad4.jpg" alt="Foto de Gustavo Ribeiro Thon" style="width:200px;height:auto;">
-        </ul>
-        <p>Clique <a href="Trabalhos independetes.html">aqui</a> para ver outros projetos.</p>
+        <div class="projetos-grid">
+          <div class="projeto">
+            <img src="https://i.pinimg.com/736x/ff/1c/2d/ff1c2d9955ff5b23e6a025a916b03ad4.jpg" alt="Projeto 1">
+            <h4>Projeto 1</h4>
+            <p>Descrição do projeto.</p>
+          </div>
+          <div class="projeto">
+            <img src="https://i.pinimg.com/736x/ff/1c/2d/ff1c2d9955ff5b23e6a025a916b03ad4.jpg" alt="Projeto 2">
+            <h4>Projeto 2</h4>
+            <p>Descrição do projeto.</p>
+          </div>
+          <div class="projeto">
+            <img src="https://i.pinimg.com/736x/ff/1c/2d/ff1c2d9955ff5b23e6a025a916b03ad4.jpg" alt="Projeto 3">
+            <h4>Projeto 3</h4>
+            <p>Descrição do projeto.</p>
+          </div>
+        </div>
+      </div>
     </section>
-</main>
+  </main>
 
-<footer>
-    <section id="contato">
-        <h2>Contatos</h2>
-        <p>Instagram</p>
-            <ul>
-                <li>o.Gutho</li>
-            </ul>
-        <P>Email</P>
-            <ul>
-                <li>thongustavo@gmail.com</li>
-            </ul>
-        <p>Zap Zap</p>
-            <ul>
-                <li>+351 962638836 </li>
-            </ul>
-    </section>
-</footer>
+  <!-- Rodapé -->
+  <footer id="contato">
+    <div class="container">
+      <h2>Contatos</h2>
+      <ul class="contatos">
+        <li><strong>Instagram:</strong> o.Gutho</li>
+        <li><strong>Email:</strong> thongustavo@gmail.com</li>
+        <li><strong>WhatsApp:</strong> +351 962638836</li>
+      </ul>
+      <p class="copy">© 2025 - Gustavo Thon</p>
+    </div>
+  </footer>
+
+  <!-- Script do Dark Mode -->
+  <script>
+    const toggle = document.getElementById('darkModeToggle');
+    toggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+      toggle.textContent = document.body.classList.contains('dark') ? "☀️" : "🌙";
+    });
+  </script>
 </body>
+</html>
