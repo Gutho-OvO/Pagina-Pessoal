@@ -48,41 +48,9 @@
         <h2 style="margin-top: 30px;">Hobbies</h2>
         <p>Clique em um hobby para saber mais:</p>
         <ul class="lista hobbies-lista">
-          <li><a href="#hobby-desenhar">🎨 Desenhar</a></li>
-          <li><a href="#hobby-filmes">🎬 Assistir filmes</a></li>
-          <li><a href="#hobby-jogos">🎮 Jogar e criar jogos</a></li>
-          <li><a href="#hobby-maquetes">🏗️ Fazer maquetes</a></li>
+          <li><a href="Hobbies/Desenhar.html">🎨 Desenhar</a></li>
+          <li><a href="Hobbies/Jogar e criar jogos.html">🎮 Jogar e criar jogos</a></li>
         </ul>
-      </div>
-    </section>
-
-    <!-- Seções de hobbies detalhadas -->
-    <section id="hobby-desenhar" class="section">
-      <div class="container">
-        <h3>🎨 Desenhar</h3>
-        <p>Aqui você pode colocar seus desenhos, falar sobre suas inspirações, técnicas, materiais que usa, etc.</p>
-        <img src="https://placekitten.com/400/250" alt="Exemplo de desenho">
-      </div>
-    </section>
-
-    <section id="hobby-filmes" class="section bg-light">
-      <div class="container">
-        <h3>🎬 Assistir filmes</h3>
-        <p>Espaço para comentar sobre filmes favoritos, críticas ou recomendações.</p>
-      </div>
-    </section>
-
-    <section id="hobby-jogos" class="section">
-      <div class="container">
-        <h3>🎮 Jogar e criar jogos</h3>
-        <p>Espaço para mostrar jogos que gosta, ideias que tem ou projetos relacionados.</p>
-      </div>
-    </section>
-
-    <section id="hobby-maquetes" class="section bg-light">
-      <div class="container">
-        <h3>🏗️ Fazer maquetes</h3>
-        <p>Aqui você pode postar fotos de maquetes já feitas e contar como foi o processo de criação.</p>
       </div>
     </section>
 
@@ -92,19 +60,19 @@
         <h2>Alguns dos meus projetos escolares</h2>
         <div class="projetos-grid">
           <div class="projeto">
-            <img src="https://i.pinimg.com/736x/ff/1c/2d/ff1c2d9955ff5b23e6a025a916b03ad4.jpg" alt="Projeto 1">
-            <h4>Projeto 1</h4>
-            <p>Descrição do projeto.</p>
+            <img src="/img/trabalho 1.jpg" alt="Projeto 1">
+            <h4>Korok</h4>
+            <p>Nesse trabalho tive como objetivo recriar uma criatura ficticia. Acabei por escolher um Korok do jogo The legend of Zelda: Breath of the Wild.</p>
           </div>
           <div class="projeto">
-            <img src="https://i.pinimg.com/736x/ff/1c/2d/ff1c2d9955ff5b23e6a025a916b03ad4.jpg" alt="Projeto 2">
-            <h4>Projeto 2</h4>
-            <p>Descrição do projeto.</p>
+            <img src="/img/Trabalho 2.jpg" alt="Projeto 2">
+            <h4>Bolsa personalizada</h4>
+            <p>No âmbito da disciplina de Ofc. de Artes fomos ao Centro Tecnológico do Calçado de Portugal, para realizar a criação de bolsas personalizadas. O tema escolhido por mim foi de um jogo chamado Enigma do Medo criado pelo streamer brasileiro Cellbit</p>
           </div>
           <div class="projeto">
-            <img src="https://i.pinimg.com/736x/ff/1c/2d/ff1c2d9955ff5b23e6a025a916b03ad4.jpg" alt="Projeto 3">
-            <h4>Projeto 3</h4>
-            <p>Descrição do projeto.</p>
+            <img src="/img/Trabalho 3.jpg" alt="Projeto 3">
+            <h4>Maquete 3D</h4>
+            <p>Através do programa Blockbench fui capaz de recriar um modelo 3D de uma área exterior da minha antiga escola com o objetivo de renovar o espaço, O projeto foi apresentado como proposta de integração de novos elementos no local que se encontrava inutilizado</p>
           </div>
         </div>
       </div>
@@ -116,9 +84,14 @@
     <div class="container">
       <h2>Contatos</h2>
       <ul class="contatos">
-        <li><strong>Instagram:</strong> o.Gutho</li>
-        <li><strong>Email:</strong> thongustavo@gmail.com</li>
-        <li><strong>WhatsApp:</strong> +351 962638836</li>
+      <a href="https://www.instagram.com/o.gutho/" target="_blank" rel="noopener noreferrer">
+        <img src="img/Instagram.webp"></a>
+        <p>Instagram</p>
+      </a>
+      <a href="https://wa.me/+351962638836" target="_blank" rel="noopener noreferrer">
+        <img src="img/Zap Zap.webp"></a>
+        <p>WhatsApp</p>
+      </a>
       </ul>
       <p class="copy">© 2025 - Gustavo Thon</p>
     </div>
@@ -132,5 +105,25 @@
       toggle.textContent = document.body.classList.contains('dark') ? "☀️" : "🌙";
     });
   </script>
+
+  <!-- Barra de progresso -->
+<div id="progress-container">
+  <div id="progress-bar"></div>
+  <img id="runner" src="img/Newt-export.gif" alt="Gustavo correndo">
+</div>
+
+<script>
+  const progressBar = document.getElementById("progress-bar");
+  const runner = document.getElementById("runner");
+
+  window.addEventListener("scroll", () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollPercent = (scrollTop / docHeight) * 100;
+
+    progressBar.style.width = scrollPercent + "%";
+    runner.style.left = `calc(${scrollPercent}% - 25px)`; // ajuste de posição
+  });
+</script>
 </body>
 </html>

@@ -138,20 +138,16 @@ header nav a:hover {
 }
 
 /* Contato */
+footer img {
+  width: 40px;
+  height: 40px
+}
+
 footer {
   background: #222;
   color: #fff;
+  display: flex;
   text-align: center;
-  padding: 40px 0;
-}
-
-.contatos {
-  list-style: none;
-  margin: 20px 0;
-}
-
-.contatos li {
-  margin-bottom: 10px;
 }
 
 .copy {
@@ -230,3 +226,37 @@ body.dark a {
   }
 }
 
+/* Container da barra */
+#progress-container {
+  position: fixed;
+  top: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  height: 14px;
+  background: rgba(0,0,0,0.1);
+  border-radius: 999px;
+  z-index: 9999;
+  overflow: visible;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+/* A barrinha que cresce */
+#progress-bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #f63b3b, #d40606);
+  transition: width 0.1s ease-out;
+  border-radius: 999px;
+}
+
+/* O desenhinho que corre */
+#runner {
+  position: absolute;
+  top: -30px; /* ajusta altura do boneco */
+  left: 10px;
+  width: 80px; /* tamanho do seu desenho */
+  height: auto;
+  transition: left 0.1s linear;
+  pointer-events: none; /* não atrapalha cliques */
+}
