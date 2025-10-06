@@ -7,7 +7,6 @@
   <link rel="stylesheet" href="estilos/style.css">
 </head>
 <body>
-  <!-- Cabeçalho -->
   <header>
     <div class="container header-flex">
       <h1>Bem-vindo à minha página pessoal</h1>
@@ -19,13 +18,11 @@
           <li><a href="#contato">Contato</a></li>
         </ul>
       </nav>
-      <!-- Botão Dark Mode -->
       <button id="darkModeToggle">🌙</button>
     </div>
   </header>
 
   <main>
-    <!-- Sobre mim -->
     <section id="sobre" class="section">
       <div class="container">
         <h2>Sobre mim</h2>
@@ -42,7 +39,6 @@
       </div>
     </section>
 
-    <!-- Hobbies -->
     <section id="hobbies" class="section bg-light">
       <div class="container">
         <h2 style="margin-top: 30px;">Hobbies</h2>
@@ -54,7 +50,6 @@
       </div>
     </section>
 
-    <!-- Projetos -->
     <section id="projetos" class="section">
       <div class="container">
         <h2>Alguns dos meus projetos escolares</h2>
@@ -79,7 +74,6 @@
     </section>
   </main>
 
-  <!-- Rodapé -->
   <footer id="contato">
     <div class="container">
       <h2>Contatos</h2>
@@ -97,7 +91,6 @@
     </div>
   </footer>
 
-  <!-- Script do Dark Mode -->
   <script>
     const toggle = document.getElementById('darkModeToggle');
     toggle.addEventListener('click', () => {
@@ -106,7 +99,6 @@
     });
   </script>
 
-  <!-- Barra de progresso -->
 <div id="progress-container">
   <div id="progress-bar"></div>
   <img id="runner" src="img/Newt-export.gif" alt="Gustavo correndo">
@@ -122,7 +114,7 @@
     const scrollPercent = (scrollTop / docHeight) * 100;
 
     progressBar.style.width = scrollPercent + "%";
-    runner.style.left = `calc(${scrollPercent}% - 25px)`; // ajuste de posição
+    runner.style.left = `calc(${scrollPercent}% - 25px)`;
   });
 </script>
 </body>

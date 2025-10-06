@@ -16,7 +16,6 @@
       overflow-y:scroll;
     }
 
-    /* ========== PROGRESS BAR (top) ========== */
     #progress-wrap{
       position:fixed;
       top:18px;
@@ -50,7 +49,6 @@
       filter: drop-shadow(0 6px 14px rgba(0,0,0,0.6));
     }
 
-    /* ========== AUDIO CONTROL ========== */
     #audio-controls{
       position:fixed;
       right:18px;
@@ -71,7 +69,6 @@
       box-shadow:0 6px 14px rgba(0,0,0,0.3);
     }
 
-    /* ========== PARTICLES & LAYOUT ========== */
     canvas#particles{position:fixed; inset:0; z-index:0; pointer-events:none;}
     section{position:relative;z-index:2;padding:60px 5%;}
     h1,h2{text-align:center;margin-bottom:18px}
@@ -81,7 +78,6 @@
     @keyframes fadeDown{from{opacity:0;transform:translateY(-30px)}to{opacity:1;transform:translateY(0)}}
     @keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
 
-    /* ========== CARROSSEL ========== */
     .carousel-container {
       position:relative;
       width:92%;
@@ -114,7 +110,6 @@
     .arrow{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,.55);border:none;color:#fff;font-size:24px;padding:8px 12px;border-radius:999px;cursor:pointer;z-index:5}
     .arrow.left{left:6px}.arrow.right{right:6px}
 
-    /* ========== MODAL ========== */
     .modal {
       display:none;
       position:fixed;
@@ -160,7 +155,6 @@
     }
     @media(max-width:700px){iframe{height:220px}}
 
-    /* ========== MEU JOGO / FANART / CURIOSIDADES ========== */
     #meu-jogo{margin-top:80px;padding:80px 5%;background:linear-gradient(180deg, rgba(10,10,10,0.85), #060606);border-top:3px solid #3b82f6}
     .curiosidade {
       background:linear-gradient(180deg, rgba(59,130,246,0.06), rgba(59,130,246,0.02));
@@ -173,12 +167,10 @@
     .fanart-grid img{width:100%;border-radius:10px;transition:transform .25s}
     .fanart-grid img:hover{transform:scale(1.06)}
 
-    /* ========== PREVIEW (canvas) ========= */
     #preview-jogo{padding:50px 5% 120px}
     #gameCanvas{display:block;margin:18px auto;border:3px solid rgba(59,130,246,0.15);border-radius:10px;background:#0b0b0b;max-width:100%}
     .scoreline{text-align:center;margin-top:8px;font-weight:600;color:#dbeafe}
 
-    /* small screens */
     @media(max-width:900px){#hero h1{font-size:2rem}.game{width:160px}}
 
     .back-button {
@@ -204,30 +196,23 @@
 </head>
 <body>
 
-  <!-- BARRA DE PROGRESSO + RUNNER -->
   <div id="progress-wrap">
     <div id="progress"></div>
-    <!-- troque o src abaixo pelo seu GIF (ex: /img/gustavo-correndo.gif) -->
     <img id="runner" src="/img/Newt-export.gif" alt="Newt correndo">
   </div>
 
   <a href="../index.html" class="back-button">← Voltar para a página principal</a>
-  <!-- PARTICLES -->
   <canvas id="particles"></canvas>
 
-  <!-- HERO -->
   <section id="hero">
     <h1>🎮 Jogos</h1>
     <p>Minha galeria pessoal de jogos que me inspiraram e que gosto — e o que estou criando.</p>
   </section>
 
-  <!-- CARROSSEL -->
   <section id="favoritos">
     <div class="carousel-container">
       <button class="arrow left" aria-label="Voltar">‹</button>
       <div class="carousel" id="carousel">
-        <!-- Exemplo: mantenha os data- atributos para cada game -->
-        <!-- Sinta-se à vontade para trocar as imagens pelos arquivos locais -->
         <div class="game" data-title="Assasin's Creed Shadows" data-stars="★★★★★" data-desc="Viva um história épica de ação e aventura ambientada no Japão feudal! Torne-se uma assasina shinobi letal e um samurai lendário enquanto explora um mundo aberto em tempos de caos." data-trailer="https://www.youtube.com/embed/vovkzbtYBC8">
           <img src="/img/Shadows.jpg" alt="Assasin's Creed Shadows">
         </div>
@@ -323,8 +308,6 @@
   function loopP(){ ctx.clearRect(0,0,canvas.width,canvas.height); parts.forEach(p=>{p.update(); p.draw()}); requestAnimationFrame(loopP); }
   initP(); loopP();
 
-  
-  //Carousel behavior//
   const carousel = document.getElementById('carousel');
   document.querySelector('.arrow.left').addEventListener('click', ()=>carousel.scrollBy({left: -320, behavior:'smooth'}));
   document.querySelector('.arrow.right').addEventListener('click', ()=>carousel.scrollBy({left: 320, behavior:'smooth'}));
@@ -347,7 +330,6 @@
       modalTrailer.src = g.dataset.trailer || '';
       modal.style.display = 'flex';
       modal.setAttribute('aria-hidden','false');
-      // lower background audio a bit when modal open
       fadeVolume(bgAudio, 0.15, 200);
       fadeVolume(steamAudio, 0.0, 200);
     });
@@ -357,16 +339,11 @@
     modal.style.display = 'none';
     modal.setAttribute('aria-hidden','true');
     modalTrailer.src = '';
-    // restore volumes
     fadeVolume(bgAudio, 0.6, 300);
-    // steam handled by scroll
   }
   closeModal.addEventListener('click', closeModalFn);
   modal.addEventListener('click', (e)=> { if(e.target===modal) closeModalFn(); });
 
-  /*******
-   PROGRESS BAR + RUNNER
-  *******/
   const progressEl = document.getElementById('progress');
   const runnerEl = document.getElementById('runner');
   let lastScroll = 0;
@@ -375,26 +352,19 @@
     const docHeight = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight) - window.innerHeight;
     const pct = docHeight <= 0 ? 100 : Math.min(100, Math.max(0, (scrollTop / docHeight) * 100));
     progressEl.style.width = pct + '%';
-    // position runner inside progress-wrap bounds
     const wrap = document.getElementById('progress-wrap');
     const wrapRect = wrap.getBoundingClientRect();
     const runnerWidth = runnerEl.offsetWidth || 60;
-    // left relative to wrap
     const leftPx = (pct/100) * (wrapRect.width) - (runnerWidth/2);
     runnerEl.style.left = (leftPx < -runnerWidth/2 ? -runnerWidth/2 : (leftPx > wrapRect.width - runnerWidth/2 ? wrapRect.width - runnerWidth/2 : leftPx)) + 'px';
-    // flip runner based on scroll dir
     if(scrollTop > lastScroll) runnerEl.style.transform = 'scaleX(1)';
     else runnerEl.style.transform = 'scaleX(-1)';
     lastScroll = scrollTop;
   }
   window.addEventListener('scroll', updateProgress);
   window.addEventListener('resize', updateProgress);
-  // initial
   updateProgress();
 
-  /*******
-   PREVIEW INTERATIVA (canvas mini-jogo)
-  *******/
   const canvasGame = document.getElementById('gameCanvas');
   const g = canvasGame.getContext('2d');
   let scale = Math.min(720, window.innerWidth - 80) / 720;
@@ -417,15 +387,13 @@
   function clamp(v,a,b){ return Math.max(a, Math.min(b, v)); }
 
   function updateGame(){
-    // movement
+    // movimentação
     if(keys['ArrowUp']||keys['w']) player.y -= player.speed;
     if(keys['ArrowDown']||keys['s']) player.y += player.speed;
     if(keys['ArrowLeft']||keys['a']) player.x -= player.speed;
     if(keys['ArrowRight']||keys['d']) player.x += player.speed;
-    // bounds
     player.x = clamp(player.x, 0, 720 - player.w);
     player.y = clamp(player.y, 0, 420 - player.h);
-    // collisions coins
     coins.forEach(c=>{
       if(!c.taken){
         const cx = c.x, cy = c.y, r = c.r;
@@ -438,13 +406,13 @@
 
   function drawGame(){
     g.clearRect(0,0,720,420);
-    // background grid subtle
+    // fundo
     g.fillStyle='#0b0b0b'; g.fillRect(0,0,720,420);
     g.strokeStyle='rgba(255,255,255,0.02)'; g.lineWidth=1;
     for(let i=0;i<720;i+=40){ g.beginPath(); g.moveTo(i,0); g.lineTo(i,420); g.stroke(); }
     for(let j=0;j<420;j+=40){ g.beginPath(); g.moveTo(0,j); g.lineTo(720,j); g.stroke(); }
 
-    // coins
+    // moedas
     coins.forEach(c=>{
       if(!c.taken){
         g.fillStyle='gold';
@@ -456,7 +424,7 @@
     // player
     g.fillStyle = player.color;
     g.fillRect(player.x, player.y, player.w, player.h);
-    // small eyes
+    // zoio
     g.fillStyle='#3b6092'; g.fillRect(player.x+6, player.y+8,4,4); g.fillRect(player.x+player.w-10, player.y+8,4,4);
   }
 
@@ -465,18 +433,6 @@
   }
   loopGame();
 
-  /*******
-   Accessibility / finishing touches
-  *******/
-  // ensure modal close on Escape
-  document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape' && modal.style.display === 'flex') closeModalFn(); });
-
-  // set initial runner image fallback if not found
-  const runner = document.getElementById('runner');
-  runner.addEventListener('error', ()=>{ runner.src = 'https://i.imgur.com/2yaf2wb.png'; });
-
-  // update progress once on load
-  setTimeout(updateProgress, 200);
   </script>
 </body>
 </html>

@@ -178,7 +178,6 @@ body.dark a {
   color: #c9a0ff;
 }
 
-/* RESPONSIVIDADE */
 @media (max-width: 768px) {
   /* Header */
   .header-flex {
